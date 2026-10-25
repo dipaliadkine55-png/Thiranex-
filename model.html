@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Accessible modal dialog component for the Dipali enterprise dashboard.">
+
+    <title>Modal Component | Dipali Dashboard</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/model.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">
+        Skip to main content
+    </a>
+
+    <header class="site-header">
+        <a class="brand" href="../index.html">
+            Dipali Dashboard
+        </a>
+
+        <nav aria-label="Main navigation">
+            <ul class="nav-list">
+                <li>
+                    <a href="../index.html">Overview</a>
+                </li>
+                <li>
+                    <a href="../pages/analytics.html">Analytics</a>
+                </li>
+                <li>
+                    <a href="../pages/settings.html">Settings</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+        <section aria-labelledby="page-title">
+            <header class="section-header">
+                <h1 id="page-title">Modal Dialog Component</h1>
+                <p>
+                    Create reports using this accessible modal dialog.
+                </p>
+            </header>
+
+            <article class="metric-card"
+                     aria-labelledby="component-heading">
+
+                <h2 id="component-heading">Report Management</h2>
+
+                <p>
+                    Open the dialog to enter report details.
+                </p>
+
+                <button type="button" id="open-modal">
+                    Create New Report
+                </button>
+
+                <p id="page-feedback"
+                   role="status"
+                   aria-live="polite"></p>
+            </article>
+        </section>
+    </main>
+
+    <dialog id="report-modal"
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description">
+
+        <form id="report-form">
+            <header>
+                <h2 id="modal-title">Create New Report</h2>
+
+                <p id="modal-description">
+                    Enter the details below to create a report.
+                </p>
+            </header>
+
+            <div class="form-group">
+                <label for="report-name">Report name</label>
+
+                <input
+                    type="text"
+                    id="report-name"
+                    name="report-name"
+                    minlength="3"
+                    maxlength="100"
+                    autocomplete="off"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="report-type">Report type</label>
+
+                <select id="report-type" name="report-type" required>
+                    <option value="">Select a report type</option>
+                    <option value="sales">Sales Report</option>
+                    <option value="revenue">Revenue Report</option>
+                    <option value="customers">Customer Report</option>
+                    <option value="analytics">Analytics Report</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="report-date">Report date</label>
+
+                <input
+                    type="date"
+                    id="report-date"
+                    name="report-date"
+                    required
+                >
+            </div>
+
+            <div class="modal-actions">
+                <button type="submit">
+                    Create Report
+                </button>
+
+                <button type="button" id="close-modal">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+    <footer class="site-footer">
+        <p>
+            &copy; 2026 Dipali Dashboard. All rights reserved.
+        </p>
+    </footer>
+</body>
+</html>
