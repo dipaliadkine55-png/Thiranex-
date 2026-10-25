@@ -1,2 +1,2 @@
-# thiranex internship task2
-css portfolio architecture
+# thiranex internship
+javascript logic and text management

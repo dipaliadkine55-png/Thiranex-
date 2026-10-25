@@ -1,852 +1,126 @@
-/* =========================================
-   1. THEME VARIABLES
-========================================= */
-
 :root {
-    color-scheme: light;
-
-    --color-primary: #6366f1;
-    --color-primary-hover: #4f46e5;
-
-    --color-background: #f5f7fb;
-    --color-surface: #ffffff;
-    --color-surface-hover: #eef2ff;
-
-    --color-text: #172033;
-    --color-text-muted: #667085;
-
-    --color-border: #e4e7ec;
-    --color-focus: #f59e0b;
-
-    --color-success: #067647;
-    --color-success-bg: #dcfae6;
-
-    --color-warning: #93370d;
-    --color-warning-bg: #fef0c7;
-
-    --sidebar-width: 250px;
-    --header-height: 76px;
-
-    --radius-sm: 8px;
-    --radius-md: 14px;
-    --radius-lg: 20px;
-
-    --shadow-sm: 0 2px 8px rgb(16 24 40 / 5%);
-    --shadow-md: 0 12px 30px rgb(16 24 40 / 8%);
-
-    --transition-fast: 180ms ease;
-
-    --spacing-1: 0.5rem;
-    --spacing-2: 1rem;
-    --spacing-3: 1.5rem;
-    --spacing-4: 2rem;
-}
-
-/* Dark theme */
-
-:root[data-theme="dark"] {
-    color-scheme: dark;
-
-    --color-primary: #a5b4fc;
-    --color-primary-hover: #c7d2fe;
-
-    --color-background: #101322;
-    --color-surface: #191d30;
-    --color-surface-hover: #252b43;
-
-    --color-text: #f2f4f7;
-    --color-text-muted: #b0b8ca;
-
-    --color-border: #343b52;
-    --color-focus: #fbbf24;
-
-    --color-success: #86efac;
-    --color-success-bg: #153c2a;
-
-    --color-warning: #fde68a;
-    --color-warning-bg: #493518;
-
-    --shadow-sm: 0 2px 8px rgb(0 0 0 / 15%);
-    --shadow-md: 0 12px 30px rgb(0 0 0 / 25%);
-}
-
-/* =========================================
-   2. RESET AND BASE STYLES
-========================================= */
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 1rem;
+    --primary: #2563eb;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --border: #cbd5e1;
 }
 
 body {
-    min-width: 320px;
-    min-height: 100vh;
-    margin: 0;
-
-    font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-    font-size: 1rem;
-    line-height: 1.6;
-
-    color: var(--color-text);
-    background: var(--color-background);
-
-    transition:
-        background-color var(--transition-fast),
-        color var(--transition-fast);
-}
-
-img,
-svg,
-video {
-    display: block;
-    max-width: 100%;
-}
-
-button,
-input,
-select,
-textarea {
-    font: inherit;
-}
-
-button,
-select {
-    cursor: pointer;
-}
-
-a {
-    color: var(--color-primary);
-    text-underline-offset: 0.2em;
-}
-
-a:hover {
-    text-decoration-thickness: 2px;
-}
-
-h1,
-h2,
-h3,
-h4,
-p {
-    margin-top: 0;
-}
-
-h1,
-h2,
-h3 {
-    line-height: 1.25;
-}
-
-h1 {
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-}
-
-h2 {
-    font-size: clamp(1.25rem, 3vw, 1.6rem);
-}
-
-h3 {
-    font-size: 1.05rem;
-}
-
-::selection {
-    color: #ffffff;
-    background: #4338ca;
-}
-
-/* =========================================
-   3. ACCESSIBILITY
-========================================= */
-
-.skip-link {
-    position: fixed;
-    z-index: 2000;
-    top: 1rem;
-    left: 1rem;
-
-    padding: 0.75rem 1rem;
-
-    color: #ffffff;
-    background: #312e81;
-
-    border-radius: var(--radius-sm);
-
-    transform: translateY(-200%);
-}
-
-.skip-link:focus {
-    transform: translateY(0);
-}
-
-:focus-visible {
-    outline: 3px solid var(--color-focus);
-    outline-offset: 4px;
-}
-
-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* =========================================
-   4. HEADER AND NAVIGATION
-========================================= */
-
-.site-header {
-    position: sticky;
-    z-index: 100;
-    top: 0;
-
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 1rem;
-
-    min-height: var(--header-height);
-    padding: 1rem;
-
-    background: var(--color-surface);
-    border-bottom: 1px solid var(--color-border);
-
-    box-shadow: var(--shadow-sm);
+    justify-content: center;
+    padding-top: 4rem;
+    margin: 0;
 }
 
-.brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-
-    color: var(--color-text);
-
-    font-size: 1.2rem;
-    font-weight: 800;
-    text-decoration: none;
-    letter-spacing: -0.04em;
-}
-
-.brand::before {
-    content: "A";
-
-    display: grid;
-    place-items: center;
-
-    width: 38px;
-    height: 38px;
-
-    color: #ffffff;
-    background: #6366f1;
-
+.todo-container {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
     border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
 
-.site-header nav {
-    max-width: 100%;
-}
+h1 { margin-top: 0; font-size: 1.75rem; text-align: center; }
 
-.nav-list {
+#todo-form {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.4rem;
-
-    padding: 0;
-    margin: 0;
-
-    list-style: none;
-}
-
-.nav-list a {
-    display: inline-flex;
-    align-items: center;
-
-    min-height: 44px;
-    padding: 0.55rem 0.8rem;
-
-    color: var(--color-text-muted);
-
-    border-radius: var(--radius-sm);
-
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-
-    transition:
-        background-color var(--transition-fast),
-        color var(--transition-fast);
-}
-
-.nav-list a:hover,
-.nav-list a[aria-current="page"] {
-    color: var(--color-primary);
-    background: var(--color-surface-hover);
-}
-
-.nav-list a[aria-current="page"] {
-    font-weight: 800;
-}
-
-/* =========================================
-   5. DASHBOARD GRID
-========================================= */
-
-.dashboard-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-
-    min-height: calc(100vh - var(--header-height));
-}
-
-/* =========================================
-   6. SIDEBAR
-========================================= */
-
-.sidebar {
-    padding: 1.25rem;
-
-    background: var(--color-surface);
-    border-bottom: 1px solid var(--color-border);
-}
-
-.sidebar h2 {
-    margin-bottom: 1rem;
-
-    color: var(--color-text-muted);
-
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.sidebar ul {
-    display: flex;
-    flex-wrap: wrap;
     gap: 0.5rem;
-
-    padding: 0;
-    margin: 0;
-
-    list-style: none;
+    margin-bottom: 1.5rem;
 }
 
-.sidebar a {
-    display: block;
+#todo-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+}
 
-    padding: 0.7rem 0.85rem;
-
-    color: var(--color-text-muted);
-
-    border-radius: var(--radius-sm);
-
-    font-size: 0.9rem;
+.btn-add {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
     font-weight: 600;
-    text-decoration: none;
-
-    transition:
-        background-color var(--transition-fast),
-        color var(--transition-fast);
 }
 
-.sidebar a:hover,
-.sidebar a[aria-current="location"] {
-    color: var(--color-primary);
-    background: var(--color-surface-hover);
+.filter-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;
 }
 
-/* =========================================
-   7. MAIN CONTENT
-========================================= */
-
-main {
-    min-width: 0;
-    padding: 1.25rem;
-}
-
-main > section {
-    margin-bottom: 2.5rem;
-}
-
-.section-header {
-    margin-bottom: 2rem;
-}
-
-.section-header h1 {
-    margin-bottom: 0.6rem;
-
-    letter-spacing: -0.045em;
-}
-
-.section-header p {
-    max-width: 65ch;
-    margin-bottom: 0;
-
-    color: var(--color-text-muted);
-}
-
-/* =========================================
-   8. METRICS USING CSS GRID
-========================================= */
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1rem;
-}
-
-.metric-card {
-    min-width: 0;
-    padding: 1.4rem;
-
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-
-    box-shadow: var(--shadow-sm);
-
-    transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast);
-}
-
-.metric-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-.metric-card h2,
-.metric-card h3 {
-    margin-bottom: 0.8rem;
-}
-
-.metric-value {
-    margin-bottom: 0.5rem;
-
-    font-size: clamp(1.8rem, 5vw, 2.4rem);
-    font-weight: 800;
-    letter-spacing: -0.05em;
-
-    overflow-wrap: anywhere;
-}
-
-.metric-card p:last-child {
-    margin-bottom: 0;
-    color: var(--color-text-muted);
-}
-
-/* =========================================
-   9. FORMS
-========================================= */
-
-form {
-    width: 100%;
-    max-width: 760px;
-}
-
-fieldset {
-    display: grid;
-    gap: 1.25rem;
-
-    min-width: 0;
-    padding: 1.25rem;
-
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-}
-
-legend {
-    padding: 0 0.5rem;
-
-    font-weight: 800;
-}
-
-.form-group {
-    display: grid;
-    gap: 0.45rem;
-}
-
-label {
-    font-size: 0.9rem;
-    font-weight: 700;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    min-height: 46px;
-    padding: 0.7rem 0.85rem;
-
-    color: var(--color-text);
-    background: var(--color-background);
-
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-
-    transition:
-        border-color var(--transition-fast),
-        box-shadow var(--transition-fast);
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: var(--color-text-muted);
-    opacity: 1;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: var(--color-primary);
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-    width: 1.2rem;
-    min-height: 1.2rem;
-    height: 1.2rem;
-    margin: 0;
-
-    accent-color: var(--color-primary);
-}
-
-input[type="checkbox"] + label,
-input[type="radio"] + label {
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-.form-group:has(input[type="checkbox"]),
-.form-group:has(input[type="radio"]) {
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: center;
-    gap: 0.75rem;
+.filter-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
 }
 
-input:invalid:not(:placeholder-shown) {
-    border-color: #dc2626;
-}
-
-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-
-    min-height: 44px;
-    padding: 0.7rem 1.1rem;
-
-    color: #ffffff;
-    background: #4f46e5;
-
-    border: 1px solid transparent;
-    border-radius: var(--radius-sm);
-
-    font-weight: 700;
-
-    transition:
-        background-color var(--transition-fast),
-        transform var(--transition-fast);
-}
-
-button:hover {
-    background: #4338ca;
-}
-
-button:active {
-    transform: translateY(1px);
-}
-
-button[type="reset"] {
-    color: var(--color-text);
-    background: var(--color-surface);
-    border-color: var(--color-border);
-}
-
-button[type="reset"]:hover {
-    background: var(--color-surface-hover);
-}
-
-/* =========================================
-   10. DATA TABLES
-========================================= */
-
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-
-    -webkit-overflow-scrolling: touch;
-}
-
-table {
-    width: 100%;
-    min-width: 650px;
-
-    border-collapse: collapse;
-    text-align: left;
-}
-
-caption {
-    padding: 1rem;
-
-    color: var(--color-text);
-    font-weight: 800;
-    text-align: left;
-}
-
-thead {
-    background: var(--color-surface-hover);
-}
-
-th,
-td {
-    padding: 1rem;
-
-    border-bottom: 1px solid var(--color-border);
-    white-space: normal;
-}
-
-th {
-    font-size: 0.85rem;
-    font-weight: 800;
-}
-
-td {
-    font-size: 0.9rem;
-}
-
-tbody th {
-    font-weight: 700;
-}
-
-tbody tr:last-child th,
-tbody tr:last-child td {
-    border-bottom: 0;
-}
-
-tbody tr:hover {
-    background: var(--color-surface-hover);
-}
-
-/* =========================================
-   11. STATUS BADGES
-========================================= */
-
-.status {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-
-    padding: 0.35rem 0.7rem;
-
-    border-radius: 999px;
-
-    font-size: 0.8rem;
-    font-weight: 800;
-}
-
-.status-completed {
-    color: var(--color-success);
-    background: var(--color-success-bg);
-}
-
-.status-pending {
-    color: var(--color-warning);
-    background: var(--color-warning-bg);
-}
-
-/* =========================================
-   12. MODAL DIALOG
-========================================= */
-
-dialog {
-    width: min(92%, 520px);
-    max-height: min(85vh, 760px);
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    max-height: 300px;
     overflow-y: auto;
-
-    padding: 1.5rem;
-
-    color: var(--color-text);
-    background: var(--color-surface);
-
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-
-    box-shadow: var(--shadow-md);
 }
 
-dialog::backdrop {
-    background: rgb(10 15 35 / 65%);
-    backdrop-filter: blur(4px);
-}
-
-dialog form {
-    display: grid;
-    gap: 1.25rem;
-}
-
-.modal-actions {
+.todo-item {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-
-.modal-actions button:last-child {
-    color: var(--color-text);
-    background: var(--color-surface);
-    border-color: var(--color-border);
-}
-
-/* =========================================
-   13. FOOTER
-========================================= */
-
-.site-footer {
-    display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-
-    gap: 1rem;
-
-    padding: 1.5rem;
-
-    color: var(--color-text-muted);
-    background: var(--color-surface);
-
-    border-top: 1px solid var(--color-border);
-
-    text-align: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-bottom: 1px solid #f1f5f9;
 }
 
-.site-footer p {
-    margin: 0;
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.todo-text {
+    flex: 1;
+    outline: none;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.todo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 0.875rem;
+    color: #64748b;
 }
 
-/* =========================================
-   14. TABLET LAYOUT
-========================================= */
-
-@media (min-width: 600px) {
-    .site-header {
-        padding: 1rem 1.5rem;
-    }
-
-    main {
-        padding: 2rem;
-    }
-
-    .metrics-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .sidebar ul {
-        gap: 0.75rem;
-    }
-
-    fieldset {
-        padding: 1.5rem;
-    }
+#clear-completed {
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
 }
-
-/* =========================================
-   15. DESKTOP LAYOUT
-========================================= */
-
-@media (min-width: 1024px) {
-    .site-header {
-        padding-inline: 2rem;
-    }
-
-    .dashboard-layout {
-        grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
-    }
-
-    .sidebar {
-        padding: 2rem 1.25rem;
-
-        border-right: 1px solid var(--color-border);
-        border-bottom: 0;
-    }
-
-    .sidebar ul {
-        display: grid;
-        gap: 0.5rem;
-    }
-
-    main {
-        padding: 2.5rem;
-    }
-
-    .metrics-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.25rem;
-    }
-}
-
-/* =========================================
-   16. WIDE DESKTOP
-========================================= */
-
-@media (min-width: 1440px) {
-    .dashboard-layout {
-        grid-template-columns: 270px minmax(0, 1fr);
-    }
-
-    main {
-        width: 100%;
-        max-width: 1700px;
-        padding: 3rem;
-    }
-
-    .metrics-grid {
-        gap: 1.5rem;
-    }
-}
-
-/* =========================================
-   17. REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+#clear-completed:hover { text-decoration: underline; }
+.visually-hidden {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0,0); border: 0;
 }
