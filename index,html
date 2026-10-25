@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="weather-dashboard" role="main">
+        <h1>Weather Dashboard</h1>
+        
+        <form id="search-form">
+            <label for="city-input" class="visually-hidden">Search city</label>
+            <input type="text" id="city-input" placeholder="Enter city name (e.g., London, Tokyo)..." required aria-required="true">
+            <button type="submit" id="search-btn">Search</button>
+        </form>
+
+        <div id="error-message" class="error-banner hidden" role="alert"></div>
+
+        <div id="weather-card" class="weather-card hidden">
+            <h2 id="city-name">--</h2>
+            <p id="weather-condition" class="condition">--</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <span class="metric-label">Temperature</span>
+                    <span id="temp-val" class="metric-value">--°C</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Humidity</span>
+                    <span id="humidity-val" class="metric-value">--%</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Wind Speed</span>
+                    <span id="wind-val" class="metric-value">-- km/h</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

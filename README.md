@@ -1,2 +1,2 @@
-# thiranex internship
-javascript logic and text management
+# thiranex  internship task4
+real time weather dashboard
